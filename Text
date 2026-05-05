@@ -1,0 +1,44 @@
+Here’s how to solve the classic Two Sum problem in Python:
+✅ Optimal Solution (Hash Map — best for interviews)
+Python
+def two_sum(nums, target):
+    seen = {}  # value -> index
+    
+    for i, num in enumerate(nums):
+        complement = target - num
+        
+        if complement in seen:
+            return [seen[complement], i]
+        
+        seen[num] = i
+
+# Example
+nums = [2, 7, 11, 15]
+target = 9
+print(two_sum(nums, target))  # [0, 1]
+💡 How it works
+For each number, compute target - num
+Check if that value was seen before
+If yes → you found the pair
+If not → store current number in the dictionary
+⏱ Complexity
+Time: O(n)
+Space: O(n)
+❌ Brute Force (for understanding)
+Python
+def two_sum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+Time: O(n²) (not preferred in interviews)
+🔥 Interview Tips
+Always mention brute force first, then optimize
+Clarify:
+Exactly one solution?
+Can numbers repeat?
+Return indices or values?
+If you want, I can give:
+Two Sum for sorted array (two pointers)
+Variants like 3Sum / 4Sum
+Real interview follow-ups 🚀
